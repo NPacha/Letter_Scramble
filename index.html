@@ -11,26 +11,27 @@
     <header>
         <h1>Letter Scramble</h1>
     </header>
-    <div class="instructions"></div>
-    <div class="letters-container">
-        <ul class="letters"></ul>
-        <button type="button" name="button" id="shuffle">Shuffle Words</button>
+    <div class="first-container">
+        <div class="letters-container">
+            <ul class="letters"></ul>
+            <button type="button" name="button" id="shuffle">Shuffle Words</button>
+        </div>
+        <div class="words-container">
+            <h2 class="currentPlayer">
+            <!-- Current Player goes here -->
+            </h2>
+            <ul class="words">
+            <!-- Words from input field goes here -->
+            </ul>
+            <div class="input-container">
+                <!-- Input and input button -->
+                <label for="input-box">Type Word</label>
+                <input type="text" name="" value="" id="input-box">
+                <button type="button" name="button" id="submit">ADD</button>
+            </div>
+        </div>
     </div>
-    <div class="words-container">
-        <h2 class="currentPlayer">
-        <!-- Current Player goes here -->
-        </h2>
-        <ul class="words">
-        <!-- Words from input field goes here -->
-        </ul>
-        
-    </div>
-    <div class="input-container">
-        <!-- Input and input button -->
-        <label for="input-box">Type Word</label>
-        <input type="text" name="" value="" id="input-box">
-        <button type="button" name="button" id="submit">ADD</button>
-    </div>
+    
     <div class="timer-container">
         <button type="button" name="button" id="timer">Start Timer</button>
         <div class="timer"></div>

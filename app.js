@@ -25,6 +25,8 @@ const $closeDisputeButton = $('#close-dispute');
 
 
 
+
+
 //Create a player class
 class Player {
     constructor(name){
@@ -48,8 +50,19 @@ class Player {
 
 
     }
-    decreaseScore(){
-
+    decreaseScore(wordLength){
+        if(wordLength === 2){
+            this.points -= 10;
+        }
+        if(wordLength === 3){
+            this.points -= 20
+        }
+        if(wordLength === 4){
+            this.points -= 30
+        }
+        if(wordLength >= 5){
+            this.points -= 40
+        }
     }
 }
 
@@ -150,16 +163,28 @@ const displayDictionary = () => {
     $dictionaryModal.css('display', 'block');
 }
 
+//Delete word function
+const deleteWord = (event) => {
+    console.log(event.target.parent);
+    const $parentElement = event.target.parent;
+    console.log($parentElement)
+    currentPlayer.decreaseScore(event.target.parentElement.length);
+    event.target.parentElement.remove();
+    updateScoreBoard();
+}
+
 
 const addWord = () => {
     // event.stopPropogation();
-    const $li = $('<li>').html($input.val());
+    const $li = $('<li>');
+    const $p = $('<p>').html($input.val());
+    $li.append($p);
     const $disputeButton = $('<button>').addClass('dispute').text('DISPUTE');
     const $deleteButton = $('<button>').addClass('delete').text('DELETE');
     $li.append($disputeButton);
     $li.append($deleteButton);
     $disputeButton.on('click', displayDictionary);
-    // $deleteButton.on('click', deleteWord)
+    $deleteButton.on('click', deleteWord);
     currentPlayer.increaseScore($input.val().length);
     updateScoreBoard();
     checkWin();

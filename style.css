@@ -1,5 +1,5 @@
 body {
-    background-color: aquamarine;
+    background-color: lightblue;
 }
 
 .letters {
@@ -13,6 +13,12 @@ body {
     width: 200px;
     height: 200px;
 }
+.first-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+
 #instructions{
     background-color: rgba(0,0,0,0.4);
 	position: fixed;
