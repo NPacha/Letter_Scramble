@@ -98,7 +98,7 @@ class LettersBox {
         for(let i = 1; i <= 10; i++){
             //Create random index variable to store random index
             const randomIndex = Math.floor(Math.random()*(alphabet.length-1));
-            const $li = $('<li>').html(alphabet[randomIndex]);
+            const $li = $('<li>').html(alphabet[randomIndex]).css('list-style-type', 'none').css('font-size', '20px');
             $letters.append($li);
             this.letters.push(alphabet[randomIndex]);
             console.log(randomIndex);
@@ -132,18 +132,20 @@ const checkWin = () => {
 //Create 30 sec timer function 
 
 let timeLeft = 30;
+$('.timer').html(timeLeft).css('font-size', '50px');
 
 
 const timer = () => {
     
  
     const startTimer = () => {
+        
         if(timeLeft === -1){
             alert('Times up!');
             clearTimeout(timerId);
             
         } else {
-            $('.timer').html(timeLeft);
+            $('.timer').html(timeLeft).css('font-size', '50px');
             timeLeft--;
         }
       
