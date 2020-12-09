@@ -16,11 +16,12 @@ const $scoreBoard = $('.scoreBoard');
 const $inputContainer = $('.input-container');
 const $timerButton = $('#timer');
 const $switchPlayerButton = $('#switch-player');
-const $closeButton = $('#close');
+const $closeInstructionsButton = $('#close-instructions');
 const $instructionsModal = $('#instructions');
 const $instructionsButton = $('.instructions');
 const $letsPlayButton = $('#lets-play');
 const $dictionaryModal = $('#dictionary-check');
+const $closeDisputeButton = $('#close-dispute');
 
 
 
@@ -95,6 +96,9 @@ class LettersBox {
 }
 const lettersBox = new LettersBox;
 
+//Generate 7 random numbers
+lettersBox.generateLetters();
+
 //CHECK WIN///
 
 const checkWin = () => {
@@ -140,6 +144,8 @@ const timer = () => {
 
 
 //Event Handlers
+
+//Display dictionary
 const displayDictionary = () => {
     $dictionaryModal.css('display', 'block');
 }
@@ -177,14 +183,20 @@ const switchPlayer = () => {
     $('.timer').html(timeLeft);
 }
 
-
-const closeModal = () => {
+//Close instructions modal function
+const closeInstructionsModal = () => {
     $instructionsModal.css('display', 'none');
     $letsPlayButton.remove();
 }
 
-const openModal =  () => {
+//Opens instructions modal function
+const openInstructionsModal =  () => {
     $instructionsModal.css('display', 'block');
+}
+
+//Close dispute modal function
+const closeDisputeModal = () => {
+    $dictionaryModal.css('display', 'none')
 }
 
 //EVENT LISTENERS && EVENT HANDLERS//
@@ -201,9 +213,11 @@ $timerButton.on('click', ()=>{timer()});
 
 
 //Modal close button for instructions
-$closeButton.on('click', closeModal);
-$letsPlayButton.on('click', closeModal);
-$instructionsButton.on('click', openModal);
+$closeInstructionsButton.on('click', closeInstructionsModal);
+$letsPlayButton.on('click', closeInstructionsModal);
+$instructionsButton.on('click', openInstructionsModal);
+
+$closeDisputeButton.on('click', closeDisputeModal);
 
 //When switch player is clicked, player is updated
 $switchPlayerButton.on('click', ()=>{switchPlayer()});
@@ -214,8 +228,7 @@ $switchPlayerButton.on('click', ()=>{switchPlayer()});
 //Add dispute on click listner
 //Add dispute event handler
 
-//Generate 7 random numbers
-lettersBox.generateLetters();
+
 
 
 
