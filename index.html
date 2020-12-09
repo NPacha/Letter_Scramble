@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <title>Letter Scramble</title>
+</head>
+<body>
+    <header>
+        <h1>Letter Scramble</h1>
+    </header>
+    <div class="instructions"></div>
+    <div class="letters-container">
+        <ul class="letters"></ul>
+        <button type="button" name="button" id="shuffle">Shuffle Words</button>
+    </div>
+    <div class="words-container">
+        <h2 class="currentPlayer">
+        <!-- Current Player goes here -->
+        </h2>
+        <ul class="words">
+        <!-- Words from input field goes here -->
+        </ul>
+        
+    </div>
+    <div class="input-container">
+        <!-- Input and input button -->
+        <label for="input-box">Type Word</label>
+        <input type="text" name="" value="" id="input-box">
+        <button type="button" name="button" id="submit">ADD</button>
+    </div>
+    <div class="timer-container">
+        <button type="button" name="button" id="timer">Start Timer</button>
+        <div class="timer"></div>
+    </div>
+    <div class="switch-container">
+        <button type="button" name="button" id="switch-player">Switch Player</button>
+    </div>
+    <h3>Score Board</h3>
+    <div class="scoreBoard"></div>
+
+    <button class="instructions">Instructions</button>
+    <div id="instructions">
+        <div id="instructions-textbox">
+            <a href="#" id="close">Close</a>
+            <h1>Letter Scramble Instructions</h1>
+            <p>You will be given 7 letters at random. The goal is to come up with as many words as you can in 15 secs.Each word is worth 10 points. The first person to reach 500 points wins! Don't forget to shuffle the words each time it's a new teams turn. 
+                If you believe that a word that a team wrote is not valid, click the dispute button to check in the dictionary!  If not valid, you can delete from the list. </p>
+                <button type="button" name="button" id="lets-play">Let's play!</button>
+        </div>
+    </div>
+    <div id="dictionary-check">
+        <div id="dispute-textbox">
+            <a href="#" id="close">Close</a>
+            <h1>Check the Word!</h1>
+            <p>You are being checked! Look up the word to make sure it is legit </p>
+                <button type="button" name="button" id="word-lookup">Look up word</button>
+        </div>
+    </div>
+<script src="app.js"></script>
+</body>
+</html>
