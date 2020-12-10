@@ -38,11 +38,18 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 2rem;
 	
 }
 
+.letters-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .letters {
-    border: solid 1px black;
+    /* border: solid 1px black; */
     width: 20rem;
 	height: 20rem;
 	display: flex;
@@ -71,9 +78,14 @@ li {
 .first-container {
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 
 }
 
+
+h2.currentPlayer {
+	font-size: 3rem;
+}
 
 
 .timer-container {
@@ -93,6 +105,24 @@ li {
 	font-size: 4rem;
 	background-color: white;
 	
+}
+
+.scoreBoard {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	border: 1px solid black;
+	padding: 2rem;
+	width: 40rem;
+
+}
+
+.scoreBoard p {
+	margin: 2rem;
+	padding: 1rem;
+	width: 100%;
+	font-size: 3rem;
+	border: 1px solid black;
 }
 
 
@@ -138,10 +168,11 @@ li {
 	
 }
 
-#timer, #submit, #switch-player, #shuffle {
+#timer, #submit, #switch-player, #shuffle, .instructions{
 	width: 10rem;
 	height: 3rem;
 	font-size: 1.5rem;
+	margin: 1rem;
 }
 
 #lets-play {
@@ -165,3 +196,24 @@ input {
 	width: 15rem;
 	height: 3rem;
 }
+
+#modal-footer {
+	text-align: left;
+
+}
+
+img.trash:hover{
+	cursor:pointer;
+}
+
+button.dispute:hover, #timer:hover{
+	cursor:pointer;
+	background-color: #ff4b5c;
+
+}
+
+.word {
+	font-size: 2rem;
+	padding: 1rem;
+}
+

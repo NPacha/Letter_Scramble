@@ -76,18 +76,22 @@ let $currentPlayerName = $('<p>').html(currentPlayer.name);
 $('.currentPlayer').append($currentPlayerName);
 
 //Set scores to display right off the bat
-const $scores = $('<p>').text(
-    `Player 1: ${player1.points}
-    Player 2: ${player2.points}`);
-    $scoreBoard.append($scores);
+const $player1Score = $('<p>').text(
+    `Player 1: ${player1.points}`);
+    $scoreBoard.append($player1Score);
+const $player2Score = $('<p>').text(
+    `Player 2: ${player2.points}`);
+    $scoreBoard.append($player2Score);
 
 //Updates the score board with current point score
 const updateScoreBoard = () => {
     $scoreBoard.empty();
-    const $scores = $('<p>').text(
-    `Player 1: ${player1.points}
-    Player 2: ${player2.points}`);
-    $scoreBoard.append($scores);
+    const $player1Score = $('<p>').text(
+        `Player 1: ${player1.points}`);
+        $scoreBoard.append($player1Score);
+    const $player2Score = $('<p>').text(
+        `Player 2: ${player2.points}`);
+        $scoreBoard.append($player2Score);
 }
 
 
@@ -126,12 +130,12 @@ lettersBox.generateLetters();
 //CHECK WIN///
 
 const checkWin = () => {
-    if (player1.points >= 100){
+    if (player1.points >= 200){
         alert(`${player1.name} has won with ${player1.points} points!`);
         clearTimeout(timerId);
        
     }
-    if (player2.points >= 100){
+    if (player2.points >= 200){
         alert(`${player2.name} has won with ${player2.points} points!`);
         clearTimeout(timerId);
     
