@@ -26,6 +26,10 @@ header {
 	
 }
 
+h1 {
+	padding: 2rem;
+}
+
 .circle {
 	border-radius: 50%;
 	background-color: white;
@@ -42,12 +46,13 @@ header {
     width: 20rem;
 	height: 20rem;
 	display: flex;
+
 	
 	
 }
 
 .letters li {
-	font-size: 2.8rem;
+	font-size: 3rem;
 	flex-grow: 1;
 	
 }
@@ -121,9 +126,10 @@ li {
 }
 
 #instructions-textbox, #dispute-textbox {
-    background-color: white;
-	height: 45rem;
-	width: 55rem;
+	background-color: white;
+	font-size: 1.8rem;
+	height: 50rem;
+	width: 65rem;
     border-radius: 2px;
     margin: 15rem auto;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -142,10 +148,20 @@ li {
 	font-size: 3rem;
 	width: 15rem;
 	height: 5rem;
+	margin: 1rem;
 	
 }
 
 #lets-play:hover {
 	cursor: pointer;
 	background-color: #ff4b5c;
+}
+
+label{
+	font-size: 1.5rem;
+}
+
+input {
+	width: 15rem;
+	height: 3rem;
 }
