@@ -75,7 +75,11 @@ let currentPlayer = player1;
 let $currentPlayerName = $('<p>').html(currentPlayer.name);
 $('.currentPlayer').append($currentPlayerName);
 
-
+//Set scores to display right off the bat
+const $scores = $('<p>').text(
+    `Player 1: ${player1.points}
+    Player 2: ${player2.points}`);
+    $scoreBoard.append($scores);
 
 //Updates the score board with current point score
 const updateScoreBoard = () => {
@@ -103,6 +107,7 @@ class LettersBox {
             this.letters.push(alphabet[randomIndex]);
             console.log(randomIndex);
         }
+    
         console.log(this.letters);
     }
     
@@ -181,7 +186,7 @@ const addWord = () => {
     const $p = $('<p>').addClass('word').html($input.val());
     $li.append($p);
     const $disputeButton = $('<button>').addClass('dispute').text('DISPUTE');
-    const $deleteButton = $('<button>').addClass('delete').text('DELETE');
+    const $deleteButton = $('<img>').addClass('trash').attr('src', 'trashcan.png').css('width', '34px');
     $li.append($disputeButton);
     $li.append($deleteButton);
     $disputeButton.on('click', displayDictionary);
@@ -219,6 +224,8 @@ const closeInstructionsModal = () => {
 const openInstructionsModal =  () => {
     $instructionsModal.css('display', 'block');
 }
+
+setTimeout(openInstructionsModal, 2000);
 
 //Close dispute modal function
 const closeDisputeModal = () => {

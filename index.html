@@ -15,7 +15,9 @@
     </header>
     <div class="first-container">
         <div class="letters-container">
-            <ul class="letters"></ul>
+            <div class="circle">
+                <ul class="letters"></ul>
+            </div>
             <button type="button" name="button" id="shuffle">Shuffle Words</button>
         </div>
         <div class="switch-container">
@@ -25,9 +27,9 @@
             <h2 class="currentPlayer">
             <!-- Current Player goes here -->
             </h2>
-            <ul class="words">
-            <!-- Words from input field goes here -->
-            </ul>
+                <ul class="words">
+                <!-- Words from input field goes here -->
+                </ul>
             <div class="input-container">
                 <!-- Input and input button -->
                 <label for="input-box">Type Word</label>
@@ -52,9 +54,16 @@
         <div id="instructions-textbox">
             <a href="#" id="close-instructions">Close</a>
             <h1>Letter Scramble Instructions</h1>
-            <p>You will be given 7 letters at random. The goal is to come up with as many words as you can in 15 secs.Each word is worth 10 points. The first person to reach 500 points wins! Don't forget to shuffle the words each time it's a new teams turn. 
-                If you believe that a word that a team wrote is not valid, click the dispute button to check in the dictionary!  If not valid, you can delete from the list. </p>
-                <button type="button" name="button" id="lets-play">Let's play!</button>
+            <p>Each team will be presented with 10 letters. Your goal is to come up with as many words as you can using only letters from this list, in 30 seconds.<br><br>
+            Two letter words = 10 points <br>
+            Three letter words = 20 points<br>
+            Four letter words = 30 points<br>
+            Five or more letter words = 40 points<br><br>
+            Need to check a word from the other team? Click the dispute button to argue this word and check the dictionary.<br><br>
+            If the word is not legitimate, use the trash icon to remove the words and points. <br><br>
+            First team to make 300 points wins!
+          </p>
+                <button type="button" name="button" id="lets-play">GO!</button>
         </div>
     </div>
     <div id="dictionary-check">
