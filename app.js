@@ -98,7 +98,7 @@ class LettersBox {
         for(let i = 1; i <= 10; i++){
             //Create random index variable to store random index
             const randomIndex = Math.floor(Math.random()*(alphabet.length-1));
-            const $li = $('<li>').html(alphabet[randomIndex]).css('list-style-type', 'none').css('font-size', '20px');
+            const $li = $('<li>').html(alphabet[randomIndex]).css('list-style-type', 'none').css('font-size', '15px');
             $letters.append($li);
             this.letters.push(alphabet[randomIndex]);
             console.log(randomIndex);
@@ -167,10 +167,9 @@ const displayDictionary = () => {
 
 //Delete word function
 const deleteWord = (event) => {
-    console.log(event.target.parent);
-    const $parentElement = event.target.parent;
-    console.log($parentElement)
-    currentPlayer.decreaseScore(event.target.parentElement.length);
+    let $element = $('.word');
+    let $elementLength = $element.html().length;
+    currentPlayer.decreaseScore($elementLength);
     event.target.parentElement.remove();
     updateScoreBoard();
 }
@@ -179,18 +178,18 @@ const deleteWord = (event) => {
 const addWord = () => {
     // event.stopPropogation();
     const $li = $('<li>');
-    const $p = $('<p>').html($input.val());
+    const $p = $('<p>').addClass('word').html($input.val());
     $li.append($p);
     const $disputeButton = $('<button>').addClass('dispute').text('DISPUTE');
     const $deleteButton = $('<button>').addClass('delete').text('DELETE');
     $li.append($disputeButton);
     $li.append($deleteButton);
     $disputeButton.on('click', displayDictionary);
-    $deleteButton.on('click', deleteWord);
     currentPlayer.increaseScore($input.val().length);
     updateScoreBoard();
     checkWin();
     $wordBox.append($li);
+    $deleteButton.on('click', deleteWord);
     $input.val('');
 
 }
