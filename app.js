@@ -19,9 +19,11 @@ const $switchPlayerButton = $('#switch-player');
 const $closeInstructionsButton = $('#close-instructions');
 const $instructionsModal = $('#instructions');
 const $instructionsButton = $('.instructions');
-const $letsPlayButton = $('#lets-play');
+const $goButton = $('#go');
 const $dictionaryModal = $('#dictionary-check');
 const $closeDisputeButton = $('#close-dispute');
+const $playerNameModal = $('#player-name');
+const $letsPlayButton = $('#lets-play');
 
 
 
@@ -72,25 +74,28 @@ const player2 = new Player('Player 2');
 //Define who is the current player
 let currentPlayer = player1;
 //Append current player to words box
-let $currentPlayerName = $('<p>').html(currentPlayer.name);
-$('.currentPlayer').append($currentPlayerName);
+const updateCurrentPlayerName = () => {
+    let $currentPlayerName = $('<p>').html(currentPlayer.name);
+    $('.currentPlayer').append($currentPlayerName);
+}
+
 
 //Set scores to display right off the bat
 const $player1Score = $('<p>').text(
-    `Player 1: ${player1.points}`);
+    `${player1.name}: ${player1.points}`);
     $scoreBoard.append($player1Score);
 const $player2Score = $('<p>').text(
-    `Player 2: ${player2.points}`);
+    `${player2.name}: ${player2.points}`);
     $scoreBoard.append($player2Score);
 
 //Updates the score board with current point score
 const updateScoreBoard = () => {
     $scoreBoard.empty();
     const $player1Score = $('<p>').text(
-        `Player 1: ${player1.points}`);
+        `${player1.name}: ${player1.points}`);
         $scoreBoard.append($player1Score);
     const $player2Score = $('<p>').text(
-        `Player 2: ${player2.points}`);
+        `${player2.name}: ${player2.points}`);
         $scoreBoard.append($player2Score);
 }
 
@@ -196,7 +201,7 @@ const addWord = () => {
     const $p = $('<p>').addClass('word').html($input.val());
     $li.append($p);
     const $disputeButton = $('<button>').addClass('dispute').text('DISPUTE');
-    const $deleteButton = $('<img>').addClass('trash').attr('src', 'trashcan.png').css('width', '34px');
+    const $deleteButton = $('<img>').addClass('trash').attr('src', 'trashcan.png').css('width', '20%');
     $li.append($disputeButton);
     $li.append($deleteButton);
     $disputeButton.on('click', displayDictionary);
@@ -227,7 +232,14 @@ const switchPlayer = () => {
 //Close instructions modal function
 const closeInstructionsModal = () => {
     $instructionsModal.css('display', 'none');
-    $letsPlayButton.remove();
+    $goButton.remove();
+    
+}
+
+const displayPlayerNameInput = () => {
+    $instructionsModal.css('display', 'none');
+    $goButton.remove();
+    $playerNameModal.css('display', 'block');
 }
 
 //Opens instructions modal function
@@ -240,6 +252,17 @@ setTimeout(openInstructionsModal, 2000);
 //Close dispute modal function
 const closeDisputeModal = () => {
     $dictionaryModal.css('display', 'none')
+}
+
+//Close player name modal function
+const closePlayerNameModal = () => {
+    $player1Name = $('#player-1-name').val();
+    player1.name = $player1Name;
+    $player2Name = $('#player-2-name').val();
+    player2.name = $player2Name;
+    $playerNameModal.css('display', 'none')
+    updateScoreBoard();
+    updateCurrentPlayerName();
 }
 
 //EVENT LISTENERS && EVENT HANDLERS//
@@ -257,13 +280,15 @@ $timerButton.on('click', ()=>{timer()});
 
 //Modal close button for instructions
 $closeInstructionsButton.on('click', closeInstructionsModal);
-$letsPlayButton.on('click', closeInstructionsModal);
+$goButton.on('click', displayPlayerNameInput);
 $instructionsButton.on('click', openInstructionsModal);
 
 $closeDisputeButton.on('click', closeDisputeModal);
 
 //When switch player is clicked, player is updated
 $switchPlayerButton.on('click', ()=>{switchPlayer()});
+
+$letsPlayButton.on('click', closePlayerNameModal);
 
 
 //Add delete on click listner

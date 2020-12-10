@@ -79,7 +79,7 @@ h1 {
 .words {
 	border: 1px solid black;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 .words li{
@@ -149,7 +149,6 @@ h2.currentPlayer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-	border: 1px solid black;
 	padding: 2rem;
 	width: 40rem;
 
@@ -160,12 +159,11 @@ h2.currentPlayer {
 	padding: 1rem;
 	width: 100%;
 	font-size: 3rem;
-	border: 1px solid black;
 }
 
 
 
-#instructions{
+#instructions, #player-name{
     background-color: rgba(0,0,0,0.4);
 	position: fixed;
 	top: 0;
@@ -193,7 +191,7 @@ h2.currentPlayer {
     display: none; 
 }
 
-#instructions-textbox, #dispute-textbox {
+#instructions-textbox, #dispute-textbox, #player-name-textbox {
 	background-color: white;
 	font-size: 1.8rem;
 	height: 50rem;
@@ -232,7 +230,7 @@ h2.currentPlayer {
 	padding: .5rem;
 }
 
-#lets-play {
+#go {
 	font-size: 3rem;
 	width: 15rem;
 	height: 5rem;
@@ -244,7 +242,7 @@ button.dispute {
 	height: 30px;
 }
 
-#lets-play:hover {
+#go:hover {
 	cursor: pointer;
 	background-color: #ff4b5c;
 }
