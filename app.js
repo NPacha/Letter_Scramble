@@ -26,6 +26,10 @@ const $playerNameModal = $('#player-name');
 const $letsPlayButton = $('#lets-play');
 const $timesUpModal = $('#times-up');
 const $timesUpButton = $('#times-up-button');
+const $winnerModal = $('#winner');
+const $playAgainButton = $('#play-again');
+const $closeWinnerButton = $('#close-winner');
+
 
 
 
@@ -153,12 +157,18 @@ lettersBox.generateLetters();
 
 const checkWin = () => {
     if (player1.points >= 200){
-        alert(`${player1.name} has won with ${player1.points} points!`);
+        $input.val('');
+        const $winner = $('<p>').html(`${player1.name} has won with ${player1.points} points!`);
+        $('#winner-textbox h1').append($winner);
+        $winnerModal.css('display', 'block');
         clearTimeout(timerId);
        
     }
     if (player2.points >= 200){
-        alert(`${player2.name} has won with ${player2.points} points!`);
+        $input.val('');
+        const $winner = $('<p>').html(`${player2.name} has won with ${player2.points} points!`);
+        $('#winner-textbox h1').append($winner);
+        $winnerModal.css('display', 'block');
         clearTimeout(timerId);
     
     }
@@ -241,6 +251,7 @@ const addWord = () => {
 
 const switchPlayer = () => {
     lettersBox.generateLetters();
+    $input.val('');
     $('.currentPlayer').empty();
     $wordBox.empty();
     currentPlayer === player1? currentPlayer = player2: currentPlayer = player1
@@ -272,7 +283,7 @@ const openInstructionsModal =  () => {
     $instructionsModal.css('display', 'block');
 }
 
-setTimeout(openInstructionsModal, 2000);
+setTimeout(openInstructionsModal, 1000);
 
 //Close dispute modal function
 const closeDisputeModal = () => {
@@ -288,6 +299,19 @@ const closePlayerNameModal = () => {
     $playerNameModal.css('display', 'none')
     updateScoreBoard();
     updateCurrentPlayerName();
+}
+
+const startNewGame = () => {
+    $('#winner-textbox h1').empty();
+    $winnerModal.css('display', 'none');
+    lettersBox.generateLetters();
+    $('.currentPlayer').empty();
+    $wordBox.empty();
+    player1.points = 0;
+    player2.points = 0;
+    displayPlayerNameInput();
+    updateScoreBoard();
+    
 }
 
 //EVENT LISTENERS && EVENT HANDLERS//
@@ -316,6 +340,12 @@ $switchPlayerButton.on('click', ()=>{switchPlayer()});
 $letsPlayButton.on('click', closePlayerNameModal);
 
 $timesUpButton.on('click', closeTimesUpModal);
+
+$playAgainButton.on('click', startNewGame);
+
+$closeWinnerButton.on('click', () => {
+    $winnerModal.css('display', 'none');
+})
 
 
 //Add delete on click listner
