@@ -147,7 +147,7 @@ const checkWin = () => {
 //Create 30 sec timer function 
 
 let timeLeft = 30;
-$('.timer').html(timeLeft).css('font-size', '50px');
+$('.timer').html(timeLeft).css('font-size', '80px');
 
 
 const timer = () => {
@@ -160,7 +160,7 @@ const timer = () => {
             clearTimeout(timerId);
             
         } else {
-            $('.timer').html(timeLeft).css('font-size', '50px');
+            $('.timer').html(timeLeft).css('font-size', '80px');
             timeLeft--;
         }
       

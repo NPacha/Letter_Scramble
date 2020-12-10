@@ -69,10 +69,35 @@ h1 {
     height: 20rem;
 }
 
+.words-container {
+	border: solid 1px black;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.words {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: row;
+}
+
+.words li{
+	display: flex;
+	justify-content: flex-start;
+	border: 1px solid black;
+
+}
+
+p .word {
+	display: flex;
+	border: 1px solid black;
+}
+
 li {
 	width: 100%;
 	display: flex;
-	justify-content: flex-start;
+	
 }
 
 .first-container {
@@ -84,7 +109,20 @@ li {
 
 
 h2.currentPlayer {
-	font-size: 3rem;
+	font-size: 4rem;
+	margin-bottom: 2rem;
+}
+
+.switch-container {
+	display: inline-block;
+	width: 100%;
+}
+
+#switch-player{
+	position: relative;
+	left: 83%;
+	bottom: 30%;
+	
 }
 
 
@@ -168,11 +206,30 @@ h2.currentPlayer {
 	
 }
 
-#timer, #submit, #switch-player, #shuffle, .instructions{
+#timer, #switch-player, #shuffle, .instructions{
 	width: 10rem;
 	height: 3rem;
 	font-size: 1.5rem;
 	margin: 1rem;
+	padding: .5rem;
+}
+
+
+
+#submit{
+	width: 10rem;
+	height: 3rem;
+	font-size: 1.5rem;
+	padding: .5rem;
+	margin-top: 1rem;
+}
+
+#switch-player, #shuffle{
+	width: 10rem;
+	height: 5rem;
+	font-size: 1.5rem;
+	margin: 1rem;
+	padding: .5rem;
 }
 
 #lets-play {
@@ -181,6 +238,10 @@ h2.currentPlayer {
 	height: 5rem;
 	margin: 1rem;
 	
+}
+
+button.dispute {
+	height: 30px;
 }
 
 #lets-play:hover {
@@ -192,9 +253,10 @@ label{
 	font-size: 1.5rem;
 }
 
-input {
+#input-box {
 	width: 15rem;
 	height: 3rem;
+	margin-top: 1rem;
 }
 
 #modal-footer {
@@ -206,7 +268,7 @@ img.trash:hover{
 	cursor:pointer;
 }
 
-button.dispute:hover, #timer:hover{
+button.dispute:hover, #timer:hover, #submit:hover, #switch-player:hover, #shuffle:hover, .instructions:hover{
 	cursor:pointer;
 	background-color: #ff4b5c;
 
