@@ -1,7 +1,7 @@
 
 //Create an Alphabet Array
-const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
-
+const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' ];
+const vowels = ['A', 'E', 'I', 'O', 'U'];
 //Create a word box array to store the words
 const wordsBox = [];
 
@@ -24,6 +24,8 @@ const $dictionaryModal = $('#dictionary-check');
 const $closeDisputeButton = $('#close-dispute');
 const $playerNameModal = $('#player-name');
 const $letsPlayButton = $('#lets-play');
+const $timesUpModal = $('#times-up');
+const $timesUpButton = $('#times-up-button');
 
 
 
@@ -108,10 +110,10 @@ class LettersBox {
     generateLetters() {
         this.letters = [];
         $letters.empty();
-        for(let i = 1; i <= 10; i++){
+        for(let i = 1; i <= 7; i++){
             //Create random index variable to store random index
-            const randomIndex = Math.floor(Math.random()*(alphabet.length-1));
-            const $li = $('<li>').html(alphabet[randomIndex]).css('list-style-type', 'none');
+            const randomIndexConsonant = Math.floor(Math.random()*(consonants.length-1));
+            const $li = $('<li>').html(consonants[randomIndexConsonant]).css('list-style-type', 'none');
             if(i%2 === 0){
                 $li.css('align-items', 'center');
             }
@@ -119,9 +121,24 @@ class LettersBox {
                 $li.css('align-items', 'flex-end')
             }
             $letters.append($li);
-            this.letters.push(alphabet[randomIndex]);
-            console.log(randomIndex);
+            this.letters.push(consonants[randomIndexConsonant]);
+            console.log(randomIndexConsonant);
         }
+        for(let i = 1; i <= 3; i++){
+            //Create random index variable to store random index
+            const randomIndexVowel = Math.floor(Math.random()*(vowels.length-1));
+            const $li = $('<li>').html(vowels[randomIndexVowel]).css('list-style-type', 'none');
+            if(i%2 === 0){
+                $li.css('align-items', 'flex-end');
+            }
+            if (i%3 === 0){
+                $li.css('align-items', 'center')
+            }
+            $letters.append($li);
+            this.letters.push(vowels[randomIndexVowel]);
+            console.log(randomIndexVowel);
+        }
+
     
         console.log(this.letters);
     }
@@ -151,6 +168,10 @@ const checkWin = () => {
 /////TIMER/////
 //Create 30 sec timer function 
 
+const openTimesUpModal = () => {
+    $timesUpModal.css('display', 'block');
+}
+
 let timeLeft = 30;
 $('.timer').html(timeLeft).css('font-size', '80px');
 
@@ -161,7 +182,7 @@ const timer = () => {
     const startTimer = () => {
         
         if(timeLeft === -1){
-            alert('Times up!');
+            openTimesUpModal();
             clearTimeout(timerId);
             
         } else {
@@ -229,6 +250,10 @@ const switchPlayer = () => {
     $('.timer').html(timeLeft);
 }
 
+const closeTimesUpModal = () => {
+    $timesUpModal.css('display', 'none');
+}
+
 //Close instructions modal function
 const closeInstructionsModal = () => {
     $instructionsModal.css('display', 'none');
@@ -289,6 +314,8 @@ $closeDisputeButton.on('click', closeDisputeModal);
 $switchPlayerButton.on('click', ()=>{switchPlayer()});
 
 $letsPlayButton.on('click', closePlayerNameModal);
+
+$timesUpButton.on('click', closeTimesUpModal);
 
 
 //Add delete on click listner

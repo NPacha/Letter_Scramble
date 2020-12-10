@@ -163,7 +163,7 @@ h2.currentPlayer {
 
 
 
-#instructions, #player-name{
+#instructions, #player-name, #times-up{
     background-color: rgba(0,0,0,0.4);
 	position: fixed;
 	top: 0;
@@ -191,7 +191,7 @@ h2.currentPlayer {
     display: none; 
 }
 
-#instructions-textbox, #dispute-textbox, #player-name-textbox {
+#instructions-textbox, #dispute-textbox, #player-name-textbox, #times-up-textbox {
 	background-color: white;
 	font-size: 1.8rem;
 	height: 50rem;
