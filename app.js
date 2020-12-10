@@ -102,7 +102,13 @@ class LettersBox {
         for(let i = 1; i <= 10; i++){
             //Create random index variable to store random index
             const randomIndex = Math.floor(Math.random()*(alphabet.length-1));
-            const $li = $('<li>').html(alphabet[randomIndex]).css('list-style-type', 'none').css('font-size', '15px');
+            const $li = $('<li>').html(alphabet[randomIndex]).css('list-style-type', 'none');
+            if(i%2 === 0){
+                $li.css('align-items', 'center');
+            }
+            if (i%3 === 0){
+                $li.css('align-items', 'flex-end')
+            }
             $letters.append($li);
             this.letters.push(alphabet[randomIndex]);
             console.log(randomIndex);

@@ -22,17 +22,37 @@ header {
 	font-size: 4rem;
 	background-color: #056674;
 	color: white;
+	padding: 1.5rem;
+	
+}
+
+.circle {
+	border-radius: 50%;
+	background-color: white;
+	width: 30rem;
+	height: 30rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	
 }
 
 .letters {
     border: solid 1px black;
     width: 20rem;
-    height: 20rem;
+	height: 20rem;
+	display: flex;
+	
+	
+}
+
+.letters li {
+	font-size: 2.8rem;
+	flex-grow: 1;
+	
 }
 
 .words-container, .scoreBoard {
-    border: solid 1px black;
     width: 20rem;
     height: 20rem;
 }
@@ -49,10 +69,7 @@ li {
 
 }
 
-.circle {
-	border-radius: 50%;
-	background-color: white;
-}
+
 
 .timer-container {
 	display: flex;
