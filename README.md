@@ -49,15 +49,15 @@ Color Pallet:
 
 #### User stories
 
-As a user..... 
-I expect to see instructions for how the game should be played. 
-I expect to see a place where I can customize my name as the player, and my opponents name as the second player. 
-I expect to clearly see where I need to input the word I create, and be able to press enter instead of clicking button. 
-I expect to be able to have some vowels in each mix of letters, to not miss a turn without a word created. 
-I expect to be notified who one the game. 
-I expect to see my score and my opponenet's score as the game progresses. 
-I expect to be able to delete a word in case a word listed is not a real world. 
-I expect to be able to play again after the game is over. 
+As a user.....\  
+I expect to see instructions for how the game should be played.\     
+I expect to see a place where I can customize my name as the player, and my opponents name as the second player.\     
+I expect to clearly see where I need to input the word I create, and be able to press enter instead of clicking button.\     
+I expect to be able to have some vowels in each mix of letters, to not miss a turn without a word created.\     
+I expect to be notified who one the game.\     
+I expect to see my score and my opponenet's score as the game progresses.\   
+I expect to be able to delete a word in case a word listed is not a real world.\   
+I expect to be able to play again after the game is over.\    
 
 #### Development Plan 
 
