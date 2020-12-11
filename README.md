@@ -34,7 +34,7 @@ CSS was added after main functionality of game established.
 
 #### Wireframe
 
-<img src="https://drive.google.com/file/d/19hwTCefVFSw5KvrF4G_lFvERxRgO3D0B/view?usp=sharing" width="80%" >
+<img src="/wireframe-letterscramble.png" width="80%" >
 
 Color Pallet:
 
