@@ -66,16 +66,16 @@ I expect to be able to play again after the game is over.\
 description of your development plan 
 
 * Development Plan  ONE
-* Create wire frame
-* Brainstorm actor and actor actions
-* Brainstorm user stories
+  Create wire frame
+  Brainstorm actor and actor actions
+  Brainstorm user stories
 * Development Plan  Two
-* Psuedo-code functionality
-* Development Plan  Three 
-* Start creating functionality, incorporate CSS and HTML
+  Psuedo-code functionality
+  Development Plan  Three 
+  Start creating functionality, incorporate CSS and HTML
 * Development Plan  Four
-* Deploy and test game
-* Refactor code
+  Deploy and test game
+  Refactor code
 
 #### MVP
 
@@ -86,18 +86,18 @@ description of your development plan
 * MVP Three 
 * 3. Commits to github every day
 * MVP Four
-* .4 A README.md file with explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
+* 4. A README.md file with explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
 
 
 #### Stretch goals
 
 * Stretch goals ONE
-* 1. Incorporate CSS and positioning into the app ex. numbers display randomly into a circle, etc.
+  1. Incorporate CSS and positioning into the app ex. numbers display randomly into a circle, etc.
 * Stretch goals Two
-* 2. User has ability to play again after the first game is done
+  2. User has ability to play again after the first game is done
 * Stretch goals Three 
-* 3. Incorporate animations
-* Stretch goals Four
+  3. Incorporate animations
+
 
 ## Challenges:
 
