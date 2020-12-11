@@ -7,6 +7,8 @@
 ## Concept:
 Letter Scramble is a simple word game that allows two players to exercise their vocabulary knowledge and quick thinking skills. The user is presented with a set of letters from which they must create as many words as they can, and earn points, in a limited amount of time. The player that reaches 200 points wins the game. 
 
+<img src="/letters.gif" width="80%" >
+
 ## Technologies Used:
 
 * HTML
@@ -64,27 +66,43 @@ I expect to be able to play again after the game is over.\
 description of your development plan 
 
 * Development Plan  ONE
+* Create wire frame
+* Brainstorm actor and actor actions
+* Brainstorm user stories
 * Development Plan  Two
+* Psuedo-code functionality
 * Development Plan  Three 
+* Start creating functionality, incorporate CSS and HTML
 * Development Plan  Four
+* Deploy and test game
+* Refactor code
 
 #### MVP
 
 * MVP ONE
+* 1. Built with HTML, CSS, JavaScript and jQuery (this game will be played using the DOM, not the console)
 * MVP Two
+* 2. Hosted on github pages
 * MVP Three 
+* 3. Commits to github every day
 * MVP Four
+* .4 A README.md file with explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
+
 
 #### Stretch goals
 
 * Stretch goals ONE
+* 1. Incorporate CSS and positioning into the app ex. numbers display randomly into a circle, etc.
 * Stretch goals Two
+* 2. User has ability to play again after the first game is done
 * Stretch goals Three 
+* 3. Incorporate animations
 * Stretch goals Four
 
 ## Challenges:
 
-Small description of a challange you faced. 
+The biggest challenge that I faced with this app was positioning all of the elements as I wanted them to look, as well as making the letters look like they were placed in random locations within the circle div. 
+The timer was a challenge as well for me. 
 
 
 
