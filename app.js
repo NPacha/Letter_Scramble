@@ -1,10 +1,16 @@
 
+$(() => {
 //Create an Alphabet Array
 const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' ];
 const vowels = ['A', 'E', 'I', 'O', 'U'];
+
 //Create a word box array to store the words
 const wordsBox = [];
 
+//Establish set time
+let timeLeft = 30;
+//Append time left
+$('.timer').html(timeLeft).css('font-size', '80px');
 
 //Cache DOM nodes
 const $letters = $('.letters');
@@ -30,17 +36,11 @@ const $winnerModal = $('#winner');
 const $playAgainButton = $('#play-again');
 const $closeWinnerButton = $('#close-winner');
 
-
-
-
-
-
 //Create a player class
 class Player {
     constructor(name){
         this.name = name;
         this.points = 0;
-        this.wordsCreated = [];
     }
     increaseScore(wordLength){
         if(wordLength === 2){
@@ -55,8 +55,6 @@ class Player {
         if(wordLength >= 5){
             this.points += 40
         }
-
-
     }
     decreaseScore(wordLength){
         if(wordLength === 2){
@@ -73,20 +71,20 @@ class Player {
         }
     }
 }
-
+//Instantiate two new players 
 const player1 = new Player('Player 1');
 const player2 = new Player('Player 2');
 
-//Define who is the current player
+//Establish current player variable, assign to player 1
 let currentPlayer = player1;
-//Append current player to words box
+
+//Function: Append current player to words box function
 const updateCurrentPlayerName = () => {
     let $currentPlayerName = $('<p>').html(currentPlayer.name);
     $('.currentPlayer').append($currentPlayerName);
 }
 
-
-//Set scores to display right off the bat
+//Set scores for each player to display on the DOM right off the bat
 const $player1Score = $('<p>').text(
     `${player1.name}: ${player1.points}`);
     $scoreBoard.append($player1Score);
@@ -94,7 +92,7 @@ const $player2Score = $('<p>').text(
     `${player2.name}: ${player2.points}`);
     $scoreBoard.append($player2Score);
 
-//Updates the score board with current point score
+//Function: Updates the score board with current point score
 const updateScoreBoard = () => {
     $scoreBoard.empty();
     const $player1Score = $('<p>').text(
@@ -106,89 +104,54 @@ const updateScoreBoard = () => {
 }
 
 
-//Create a letters box class
-class LettersBox {
-    constructor(){
-        this.letters = [];
-    }
-    generateLetters() {
-        this.letters = [];
-        $letters.empty();
-        for(let i = 1; i <= 7; i++){
-            //Create random index variable to store random index
-            const randomIndexConsonant = Math.floor(Math.random()*(consonants.length-1));
-            const $li = $('<li>').html(consonants[randomIndexConsonant]).css('list-style-type', 'none');
-            if(i%2 === 0){
-                $li.css('align-items', 'center');
-            }
-            if (i%3 === 0){
-                $li.css('align-items', 'flex-end')
-            }
-            $letters.append($li);
-            this.letters.push(consonants[randomIndexConsonant]);
-            console.log(randomIndexConsonant);
+const generateLetters = () => {
+    $letters.empty();
+    for(let i = 1; i <= 7; i++){
+        //Create random index variable to store random index
+        const randomIndexConsonant = Math.floor(Math.random()*(consonants.length-1));
+        //Create li tag with the html inside to be a random letter in consonant array
+        const $li = $('<li>').html(consonants[randomIndexConsonant]).css('list-style-type', 'none');
+        //Create a randomized looking display of the letters
+        //If i at the current letter is even
+        if(i%2 === 0){
+            //align the letter in the center
+            $li.css('align-items', 'center');
         }
-        for(let i = 1; i <= 3; i++){
-            //Create random index variable to store random index
-            const randomIndexVowel = Math.floor(Math.random()*(vowels.length-1));
-            const $li = $('<li>').html(vowels[randomIndexVowel]).css('list-style-type', 'none');
-            if(i%2 === 0){
-                $li.css('align-items', 'flex-end');
-            }
-            if (i%3 === 0){
-                $li.css('align-items', 'center')
-            }
-            $letters.append($li);
-            this.letters.push(vowels[randomIndexVowel]);
-            console.log(randomIndexVowel);
+        //If i at the current letter is odd
+        if (i%3 === 0){
+            //align the letter at the end of the flex box
+            $li.css('align-items', 'flex-end')
         }
-
-    
-        console.log(this.letters);
+        //Append the li to the ul in the words container
+        $letters.append($li);
     }
-    
+    for(let i = 1; i <= 3; i++){
+        //Create random index variable to store random index
+        const randomIndexVowel = Math.floor(Math.random()*(vowels.length-1));
+        const $li = $('<li>').html(vowels[randomIndexVowel]).css('list-style-type', 'none');
+        if(i%2 === 0){
+            $li.css('align-items', 'flex-end');
+        }
+        if (i%3 === 0){
+            $li.css('align-items', 'center')
+        }
+        $letters.append($li);
+    } 
 }
-const lettersBox = new LettersBox;
 
-//Generate 7 random numbers
-lettersBox.generateLetters();
+//Generate 7 random letters
+generateLetters();
 
-//CHECK WIN///
-
-const checkWin = () => {
-    if (player1.points >= 200){
-        $input.val('');
-        const $winner = $('<p>').html(`${player1.name} has won with ${player1.points} points!`);
-        $('#winner-textbox h1').append($winner);
-        $winnerModal.css('display', 'block');
-        clearTimeout(timerId);
-       
-    }
-    if (player2.points >= 200){
-        $input.val('');
-        const $winner = $('<p>').html(`${player2.name} has won with ${player2.points} points!`);
-        $('#winner-textbox h1').append($winner);
-        $winnerModal.css('display', 'block');
-        clearTimeout(timerId);
-    
-    }
-
-}
 
 /////TIMER/////
 //Create 30 sec timer function 
-
 const openTimesUpModal = () => {
     $timesUpModal.css('display', 'block');
 }
 
-let timeLeft = 30;
-$('.timer').html(timeLeft).css('font-size', '80px');
-
+let timerId;
 
 const timer = () => {
-    
- 
     const startTimer = () => {
         
         if(timeLeft === -1){
@@ -198,13 +161,38 @@ const timer = () => {
         } else {
             $('.timer').html(timeLeft).css('font-size', '80px');
             timeLeft--;
-        }
-      
+        }     
     }
-    
-    
-    let timerId = setInterval(startTimer, 1000);
+    timerId = setInterval(startTimer, 1000);
 }
+
+const stopTimer = () => {
+    clearTimeout(timerId);
+   
+}
+
+
+//CHECK WIN///
+
+const checkWin = () => {
+    if (player1.points >= 200){
+        stopTimer();
+        $input.val('');
+        const $winner = $('<p>').html(`${player1.name} has won with ${player1.points} points!`);
+        $('#winner-textbox h1').append($winner);
+        $winnerModal.css('display', 'block');
+       
+    }
+    if (player2.points >= 200){
+        stopTimer();
+        $input.val('');
+        const $winner = $('<p>').html(`${player2.name} has won with ${player2.points} points!`);
+        $('#winner-textbox h1').append($winner);
+        $winnerModal.css('display', 'block');
+        
+    }
+}
+
 
 
 
@@ -246,11 +234,8 @@ const addWord = () => {
 }
 
 
-
-
-
 const switchPlayer = () => {
-    lettersBox.generateLetters();
+    generateLetters();
     $input.val('');
     $('.currentPlayer').empty();
     $wordBox.empty();
@@ -304,7 +289,9 @@ const closePlayerNameModal = () => {
 const startNewGame = () => {
     $('#winner-textbox h1').empty();
     $winnerModal.css('display', 'none');
-    lettersBox.generateLetters();
+    timeLeft = 30;
+    $('.timer').html(timeLeft).css('font-size', '80px');
+    generateLetters();
     $('.currentPlayer').empty();
     $wordBox.empty();
     player1.points = 0;
@@ -317,13 +304,19 @@ const startNewGame = () => {
 //EVENT LISTENERS && EVENT HANDLERS//
 //Add event listener for ADD button
 $addButton.on('click', ()=>{addWord()});
+
+//Enter key press for adding buton
 $inputContainer.keypress((event) => {
     if (event.keyCode === 13){
         addWord();
         
     }
 });
-$shuffleButton.on('click', ()=>{lettersBox.generateLetters()});
+
+//Shuffle letters 
+$shuffleButton.on('click', ()=>{generateLetters()});
+
+//Start timer 
 $timerButton.on('click', ()=>{timer()});
 
 
@@ -344,25 +337,7 @@ $timesUpButton.on('click', closeTimesUpModal);
 $playAgainButton.on('click', startNewGame);
 
 $closeWinnerButton.on('click', () => {
-    $winnerModal.css('display', 'none');
+$winnerModal.css('display', 'none');
 })
 
-
-//Add delete on click listner
-//Add delete event handler
-//Add dispute on click listner
-//Add dispute event handler
-
-
-
-
-
-
-
-
-
-
-// $(() => {
-//     // put jQuery in here
-   
-// });
+});

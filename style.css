@@ -49,18 +49,14 @@ h1 {
 }
 
 .letters {
-    /* border: solid 1px black; */
     width: 20rem;
 	height: 20rem;
-	display: flex;
-
-	
-	
+	display: flex;	
+	justify-content: space-between;
 }
 
 .letters li {
 	font-size: 3rem;
-	flex-grow: 1;
 	
 }
 
@@ -70,7 +66,6 @@ h1 {
 }
 
 .words-container {
-	border: solid 1px black;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -84,13 +79,11 @@ h1 {
 .words li{
 	display: flex;
 	justify-content: flex-start;
-	border: 1px solid black;
 
 }
 
 p .word {
 	display: flex;
-	border: 1px solid black;
 }
 
 li {
@@ -139,6 +132,7 @@ h2.currentPlayer {
 	
 }
 .score-container h3 {
+	margin-top: 1rem;
 	font-size: 4rem;
 	background-color: white;
 	
@@ -190,7 +184,7 @@ h2.currentPlayer {
     display: none; 
 }
 
-#instructions-textbox, #dispute-textbox, #player-name-textbox, #times-up-textbox, #winner-textbox{
+#instructions-textbox, #dispute-textbox, #player-name-textbox, #winner-textbox{
 	background-color: white;
 	font-size: 1.8rem;
 	height: 50rem;
@@ -201,6 +195,24 @@ h2.currentPlayer {
 	padding: 2rem;
 	text-align: center;
 	
+}
+
+#times-up-textbox {
+	background-color: #ff4b5c;
+	font-size: 1.8rem;
+	height: 40rem;
+	width: 65rem;
+    border-radius: 2px;
+    margin: 15rem auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 2rem;
+	text-align: center;
+
+}
+
+#times-up-textbox img {
+	width: 60%;
+	z-index: 3;
 }
 #player-name-textbox, #winner-textbox{
 	background-color: white;
@@ -233,7 +245,7 @@ h2.currentPlayer {
 	margin-top: 1rem;
 }
 
-#switch-player, #shuffle{
+#switch-player, #shuffle, #times-up-button{
 	width: 10rem;
 	height: 5rem;
 	font-size: 1.5rem;
