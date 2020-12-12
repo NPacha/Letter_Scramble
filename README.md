@@ -25,7 +25,6 @@ Letter Scramble is a simple word game that allows two players to exercise their 
 ## Approach:
 
 #### Overview
-Description of how you approach the game development. Here you will add all the development phases, from wireframes to code sample. 
 
 Wireframes mapped out the interface that the user is presented with at each of the main stages in the game. Slight modifications were made as the game was realized. 
 
